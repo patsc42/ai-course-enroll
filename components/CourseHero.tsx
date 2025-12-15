@@ -143,9 +143,7 @@ const CourseHero: React.FC<CourseHeroProps> = ({ onStart }) => {
                             What will I learn?
                         </h4>
                         <p className="text-slate-400 text-sm leading-relaxed">
-                            You will gain deep expertise in the modern AI stack. We move beyond basic API calls to cover 
-                            <strong> PyTorch, Transformer architectures, RAG pipelines</strong>, and crucially, how to orchestrate 
-                            <strong> Autonomous AI Agents</strong> that can reason and execute tasks.
+                            How modern AI works (<strong>transformers & LLMs</strong>), <strong>RAG pipelines</strong>, <strong>Generative tools</strong> for text/images/video, <strong>reasoning models</strong>, <strong>autonomous AI agents</strong> and <strong>multimodal systems</strong>. Explore real-world applications in business & society, plus future trends.
                         </p>
                     </div>
 
