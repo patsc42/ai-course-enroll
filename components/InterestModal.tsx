@@ -10,7 +10,7 @@ interface InterestModalProps {
 
 const InterestModal: React.FC<InterestModalProps> = ({ isOpen, onClose }) => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState(''); // Collecting email is crucial for a waitlist
+  const [email, setEmail] = useState(''); 
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -78,11 +78,12 @@ const InterestModal: React.FC<InterestModalProps> = ({ isOpen, onClose }) => {
                         required
                     />
                     <Input 
-                        label="Email (Optional)" 
+                        label="Email Address" 
                         type="email"
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="alex@example.com"
+                        required
                     />
                 </div>
 

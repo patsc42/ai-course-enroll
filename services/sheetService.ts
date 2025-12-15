@@ -8,7 +8,7 @@ export const saveToGoogleSheets = async (data: any, type: 'INTEREST' | 'ENROLLME
   // 3. Deploy -> New Deployment -> Select "Web app"
   // 4. "Who has access" -> "Anyone" (Important!)
   // 5. Copy the URL and paste it below.
-  const SCRIPT_URL = ''; 
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycDSsLgKfxzwPn2UexKHxdnoW4eJjGEkPGbOm53IE4_V0eHiGl8pg5CTL6f3qbVKCRlw/exec'; 
 
   const payload = {
     ...data,

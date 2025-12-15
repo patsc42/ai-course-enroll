@@ -60,27 +60,40 @@ const CourseHero: React.FC<CourseHeroProps> = ({ onStart }) => {
 
             {/* Primary CTA */}
             <div className="mb-12 max-w-md flex flex-col gap-4">
-                <Button fullWidth onClick={onStart} className="text-lg shadow-cyan-500/20 py-4">
+                <Button fullWidth onClick={onStart} className="text-lg shadow-cyan-500/20 py-4 relative z-10">
                     Start Your Journey
                 </Button>
                 
-                {/* Secondary 'Show Interest' Option - NEW PROMINENT DESIGN */}
-                <div className="mt-2">
+                {/* Secondary 'Show Interest' Option - HIGHLIGHTED DESIGN */}
+                <div className="mt-4 relative z-10">
                     <button 
                         onClick={() => setInterestModalOpen(true)}
-                        className="w-full group relative px-5 py-4 rounded-xl border-2 border-slate-700/60 hover:border-purple-500/50 bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 flex items-center justify-between shadow-lg hover:shadow-purple-500/10"
+                        className="w-full group relative px-6 py-5 rounded-2xl border-2 border-slate-700/50 bg-slate-800 hover:bg-slate-800/90 hover:border-purple-500/50 transition-all duration-300 shadow-xl overflow-hidden"
                     >
-                        <div className="flex flex-col text-left">
-                             <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-0.5 group-hover:text-slate-300">Just browsing?</span>
-                             <span className="text-white font-bold text-base group-hover:text-purple-400 transition-colors flex items-center gap-2">
-                                Show Interest
-                             </span>
-                        </div>
+                        {/* Subtle Glow Background Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         
-                        <div className="w-10 h-10 rounded-full bg-slate-700/50 group-hover:bg-purple-500/20 flex items-center justify-center transition-colors border border-slate-600 group-hover:border-purple-500/30">
-                             <svg className="w-5 h-5 text-slate-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                             </svg>
+                        <div className="relative flex items-center justify-between">
+                            <div className="text-left">
+                                 <div className="flex items-center gap-2 mb-1">
+                                    {/* Pulsing Dot */}
+                                    <span className="relative flex h-2 w-2">
+                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                                      <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                                    </span>
+                                    <span className="text-slate-400 text-xs font-bold uppercase tracking-wider group-hover:text-purple-300 transition-colors">Waitlist Open</span>
+                                 </div>
+                                 <span className="text-white font-bold text-xl tracking-tight group-hover:text-purple-100 transition-colors">
+                                    Show Interest
+                                 </span>
+                            </div>
+                            
+                            {/* Icon Box */}
+                            <div className="w-12 h-12 rounded-xl bg-slate-700/50 flex items-center justify-center border border-slate-600/50 group-hover:bg-purple-500 group-hover:border-purple-500 transition-all duration-300 shadow-lg">
+                                  <svg className="w-6 h-6 text-slate-300 group-hover:text-white transition-colors transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                 </svg>
+                            </div>
                         </div>
                     </button>
                 </div>
