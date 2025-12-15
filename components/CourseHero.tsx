@@ -143,7 +143,7 @@ const CourseHero: React.FC<CourseHeroProps> = ({ onStart }) => {
                             What will I learn?
                         </h4>
                         <p className="text-slate-400 text-sm leading-relaxed">
-                            How modern AI works (<strong>transformers & LLMs</strong>), <strong>RAG pipelines</strong>, <strong>Generative tools</strong> for text/images/video, <strong>reasoning models</strong>, <strong>autonomous AI agents</strong> and <strong>multimodal systems</strong>. Explore real-world applications in business & society, plus future trends.
+                            How modern AI works (<strong>transformers & LLMs</strong>), <strong>RAG pipelines</strong>, <strong>Generative tools</strong> for text/images/video, <strong>reasoning models</strong>, <strong>autonomous AI agents</strong> and <strong>multimodal systems</strong>. Explore real-world applications and future trends.
                         </p>
                     </div>
 
