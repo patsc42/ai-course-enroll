@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './Button';
 import { getCoursePreview } from '../services/geminiService';
+import InterestModal from './InterestModal';
 
 interface CourseHeroProps {
   onStart: () => void;
 }
 
 const CourseHero: React.FC<CourseHeroProps> = ({ onStart }) => {
+  const [isInterestModalOpen, setInterestModalOpen] = useState(false);
   const preview = getCoursePreview();
 
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-900">
+      <InterestModal 
+        isOpen={isInterestModalOpen} 
+        onClose={() => setInterestModalOpen(false)} 
+      />
+
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-blue-900/20 to-transparent z-0 pointer-events-none" />
       <div className="absolute -top-24 -right-24 w-64 h-64 lg:w-96 lg:h-96 bg-cyan-500/10 rounded-full blur-3xl z-0 pointer-events-none" />
@@ -52,13 +59,31 @@ const CourseHero: React.FC<CourseHeroProps> = ({ onStart }) => {
             </div>
 
             {/* Primary CTA */}
-            <div className="mb-12 max-w-md">
+            <div className="mb-12 max-w-md flex flex-col gap-4">
                 <Button fullWidth onClick={onStart} className="text-lg shadow-cyan-500/20 py-4">
                     Start Your Journey
                 </Button>
-                <p className="text-center text-xs text-slate-500 mt-3">
-                    Limited spots for the weekend bootcamp.
-                </p>
+                
+                {/* Secondary 'Show Interest' Option - NEW PROMINENT DESIGN */}
+                <div className="mt-2">
+                    <button 
+                        onClick={() => setInterestModalOpen(true)}
+                        className="w-full group relative px-5 py-4 rounded-xl border-2 border-slate-700/60 hover:border-purple-500/50 bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 flex items-center justify-between shadow-lg hover:shadow-purple-500/10"
+                    >
+                        <div className="flex flex-col text-left">
+                             <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-0.5 group-hover:text-slate-300">Just browsing?</span>
+                             <span className="text-white font-bold text-base group-hover:text-purple-400 transition-colors flex items-center gap-2">
+                                Show Interest
+                             </span>
+                        </div>
+                        
+                        <div className="w-10 h-10 rounded-full bg-slate-700/50 group-hover:bg-purple-500/20 flex items-center justify-center transition-colors border border-slate-600 group-hover:border-purple-500/30">
+                             <svg className="w-5 h-5 text-slate-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                             </svg>
+                        </div>
+                    </button>
+                </div>
             </div>
             
              {/* Desktop-only testimonial or trust marker could go here */}
@@ -73,7 +98,8 @@ const CourseHero: React.FC<CourseHeroProps> = ({ onStart }) => {
             <div>
                 <div className="flex items-center justify-between mb-4 px-1">
                     <h3 className="text-white font-bold text-sm uppercase tracking-wide">4-Week Syllabus</h3>
-                    <span className="text-xs text-slate-500">Sat & Sun</span>
+                    {/* UPDATED: Changed from Sat & Sun to Flex timings */}
+                    <span className="text-xs text-slate-500 font-medium bg-slate-800 px-2 py-1 rounded border border-slate-700">Flex timings</span>
                 </div>
                 <div className="bg-slate-800/40 rounded-2xl border border-slate-700/50 p-5 backdrop-blur-sm space-y-4">
                     {preview.map((item) => (

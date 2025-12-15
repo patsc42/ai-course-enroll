@@ -4,6 +4,7 @@ import EnrollmentForm from './components/EnrollmentForm';
 import SyllabusResult from './components/SyllabusResult';
 import { AppState, GeneratedCoursePlan, UserProfile } from './types';
 import { getCourseSyllabus } from './services/geminiService';
+import { saveToGoogleSheets } from './services/sheetService';
 
 const App: React.FC = () => {
   const [view, setView] = useState<AppState>(AppState.LANDING);
@@ -19,6 +20,10 @@ const App: React.FC = () => {
     setUserProfile(data);
     setView(AppState.GENERATING);
     
+    // Save enrollment data to Google Sheets in the background
+    // We don't await this to keep the UI snappy, but in a real app you might want to.
+    saveToGoogleSheets(data, 'ENROLLMENT');
+
     try {
       const plan = await getCourseSyllabus(data);
       setGeneratedPlan(plan);
