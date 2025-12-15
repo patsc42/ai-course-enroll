@@ -155,7 +155,7 @@ const CourseHero: React.FC<CourseHeroProps> = ({ onStart }) => {
                             </svg>
                             The Benefits
                         </h4>
-                        <ul className="text-slate-400 text-sm space-y-2 list-disc list-inside">
+                        <ul className="text-slate-400 text-sm space-y-2 list-disc list-inside"> 
                             <li>Mastery of 2025's most in-demand skills</li>
                             <li>Build a portfolio of 4 production-grade projects</li>
                             <li>Direct mentorship from AI architects</li>
